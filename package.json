@@ -1,0 +1,42 @@
+{
+  "name": "zingmp3-api",
+  "version": "1.0.9",
+  "description": "ZingMp3 API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "whoant <vovanhoangtuan4.2@gmail.com>",
+  "keywords": [
+    "ZingMp3",
+    "zingmp3",
+    "zing",
+    "mp3",
+    "api-music",
+    "music"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cheerio": "^1.0.0-rc.12",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "helmet": "^6.0.1",
+    "morgan": "^1.10.0",
+    "node-fetch": "^2.6.9",
+    "puppeteer": "^19.7.4",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "swagger-ui-express": "^4.6.2",
+    "tough-cookie-file-store": "^2.0.2",
+    "video-to-audio": "^1.0.1"
+  },
+  "homepage": "https://github.com/whoant/ZingMp3API#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whoant/ZingMp3API.git"
+  },
+  "bugs": {
+    "url": "https://github.com/whoant/ZingMp3API/issues"
+  }
+}

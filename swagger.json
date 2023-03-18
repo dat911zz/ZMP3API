@@ -1,0 +1,170 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "CringeMPOne API Documentation",
+    "description": "Project Application API",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "zingmp3api-dvn.onrender.com",
+  "basePath": "/",
+  "headers": {
+    "Access-Control-Allow-Origin": "*"
+  },
+  "tags": [
+    {
+      "name": "api",
+      "description": "Get info of song, artist, playlist"
+    }
+  ],
+  "paths": {
+    "/top100": {
+      "get": {
+        "tags": ["api"],
+        "summary": "Get top 100",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/getSongInfo/{id}": {
+      "get": {
+        "tags": ["api"],
+        "summary": "Get song info",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of song that we want to get infomation",
+          "type": "string"
+        }
+      ]
+    },
+    "/getStreaming/{id}": {
+      "get": {
+        "tags": ["api"],
+        "summary": "Get song media",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of song that we want to get mp3",
+          "type": "string"
+        }
+      ]
+    },
+    "/getFullInfo/{id}": {
+      "get": {
+        "tags": ["api"],
+        "summary": "Get full info",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of song that we want to get infomation",
+          "type": "string"
+        }
+      ]
+    },
+    "/getDetailPlaylist/{id}": {
+      "get": {
+        "tags": ["api"],
+        "summary": "Get playlist detail",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of playlist that we want to get infomation",
+          "type": "string"
+        }
+      ]
+    },
+    "/getDetailArtist/{id}": {
+      "get": {
+        "tags": ["api"],
+        "summary": "Get artist detail",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of artist that we want to get infomation",
+          "type": "string"
+        }
+      ]
+    },
+    "/search/{keyword}": {
+      "get": {
+        "tags": ["api"],
+        "summary": "Search with keyword",
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "keyword",
+          "in": "path",
+          "required": true,
+          "description": "ID of artist that we want to get infomation",
+          "type": "string"
+        }
+      ]
+    },
+    "/getChartHome/": {
+        "get": {
+          "tags": ["api"],
+          "summary": "Get chart home",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      }
+  },
+  "schemes": ["https"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"]
+}
