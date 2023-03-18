@@ -53,28 +53,28 @@ try {
     res.send(ads);
   });
   app.get('/home', (req, res) => {
-    Zing.getDetailPlaylist('ZU9ZO7DU').then(data => res.json(data), error => res.status(500));
+    Zing.getDetailPlaylist('ZU9ZO7DU').then(data => res.json(data), error => res.status(error));
   });
   app.get('/getChartHome', (req, res) => {
-    Zing.getChartHome().then(data => res.json(data), error => res.status(500));
+    Zing.getChartHome().then(data => res.json(data), error => res.status(error));
   });
   app.get('/top100', (req, res) => {
-    Zing.getTop100().then(data => res.json(data), error => res.status(500));
+    Zing.getTop100().then(data => res.json(data), error => res.status(error));
   });
   app.get('/getSongInfo/:id', (req, res) => {
-    Zing.getInfoMusic(req.params.id).then(data => res.json(data), error => res.status(500));
+    Zing.getInfoMusic(req.params.id).then(data => res.json(data), error => res.status(error));
   });
   app.get('/getStreaming/:id', (req, res) => {
     Zing.getStreaming(req.params.id).then(data => res.json(data), error => res.json(error));
   });
   app.get('/getFullInfo/:id', (req, res) => {
-    Zing.getFullInfo(req.params.id).then(data => res.json(data), error => res.status(500));
+    Zing.getFullInfo(req.params.id).then(data => res.json(data), error => res.status(error));
   });
   app.get('/getDetailPlaylist/:id', (req, res) => {
-    Zing.getDetailPlaylist(req.params.id).then(data => res.json(data), error => res.status(500));
+    Zing.getDetailPlaylist(req.params.id).then(data => res.json(data), error => res.status(error));
   });
   app.get('/getDetailArtist/:alias', (req, res) => {
-    Zing.getDetailArtist(req.params.alias).then(data => res.json(data), error => res.status(500));
+    Zing.getDetailArtist(req.params.alias).then(data => res.json(data), error => res.status(error));
   });
   app.get('/search/:keyword', (req, res) => {
     Zing.search(req.params.keyword).then(data => res.json(data), error => res.json(error));
