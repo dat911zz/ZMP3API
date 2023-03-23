@@ -112,7 +112,7 @@
         }
       ]
     },
-    "/getDetailArtist/{id}": {
+    "/getDetailArtist/{alias}": {
       "get": {
         "tags": ["api"],
         "summary": "Get artist detail",
@@ -124,10 +124,10 @@
       },
       "parameters": [
         {
-          "name": "id",
+          "name": "alias",
           "in": "path",
           "required": true,
-          "description": "ID of artist that we want to get infomation",
+          "description": "Alias of artist that we want to get infomation",
           "type": "string"
         }
       ]
