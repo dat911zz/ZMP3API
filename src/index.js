@@ -82,6 +82,7 @@ try {
 
 } catch (ex) {
   console.log('Ex: ' + ex);
+  app.response.send("error");
 }
 console.log(Zing.getDetailPlaylist('ZU9ZO7DU'));
 // starting the server
