@@ -53,31 +53,49 @@ try {
     res.send(ads);
   });
   app.get('/home', (req, res) => {
-    Zing.getDetailPlaylist('ZU9ZO7DU').then(data => res.json(data), error => res.json(error));
+    Zing.getDetailPlaylist('ZU9ZO7DU')
+    .then(data => res.json(data), error => res.json(error))
+    .catch(err => console.log("error:", err));
   });
   app.get('/getChartHome', (req, res) => {
-    Zing.getChartHome().then(data => res.json(data), error => res.json(error));
+    Zing.getChartHome()
+    .then(data => res.json(data), error => res.json(error))
+    .catch(err => console.log("error:", err));
   });
   app.get('/top100', (req, res) => {
-    Zing.getTop100().then(data => res.json(data), error => res.json(error));
+    Zing.getTop100()
+    .then(data => res.json(data), error => res.json(error))
+    .catch(err => console.log("error:", err));
   });
   app.get('/getSongInfo/:id', (req, res) => {
-    Zing.getInfoMusic(req.params.id).then(data => res.json(data), error => res.json(error));
+    Zing.getInfoMusic(req.params.id)
+    .then(data => res.json(data), error => res.json(error))
+    .catch(err => console.log("error:", err));
   });
   app.get('/getStreaming/:id', (req, res) => {
-    Zing.getStreaming(req.params.id).then(data => res.json(data), error => res.json(error));
+    Zing.getStreaming(req.params.id)
+    .then(data => res.json(data), error => res.json(error))
+    .catch(err => console.log("error:", err));
   });
   app.get('/getFullInfo/:id', (req, res) => {
-    Zing.getFullInfo(req.params.id).then(data => res.json(data), error => res.json(error));
+    Zing.getFullInfo(req.params.id)
+    .then(data => res.json(data), error => res.json(error))
+    .catch(err => console.log("error:", err));
   });
   app.get('/getDetailPlaylist/:id', (req, res) => {
-    Zing.getDetailPlaylist(req.params.id).then(data => res.json(data), error => res.json(error));
+    Zing.getDetailPlaylist(req.params.id)
+    .then(data => res.json(data), error => res.json(error))
+    .catch(err => console.log("error:", err));
   });
   app.get('/getDetailArtist/:alias', (req, res) => {
-    Zing.getDetailArtist(req.params.alias).then(data => res.json(data), error => res.json(error));
+    Zing.getDetailArtist(req.params.alias)
+    .then(data => res.json(data), error => res.json(error))
+    .catch(err => console.log("error:", err));
   });
   app.get('/search/:keyword', (req, res) => {
-    Zing.search(req.params.keyword).then(data => res.json(data), error => res.json(error));
+    Zing.search(req.params.keyword)
+    .then(data => res.json(data), error => res.json(error))
+    .catch(err => console.log("error:", err));
   });
 
 } catch (ex) {
