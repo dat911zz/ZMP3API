@@ -1,7 +1,7 @@
 name: Auto update cookies
 on:
   schedule:
-  - cron: '1 * * * *'
+  - cron: '*/15 * * * *'
   push:
     branches: [main]
 
