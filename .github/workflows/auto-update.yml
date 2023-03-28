@@ -2,8 +2,6 @@ name: Auto update cookies
 on:
   push:
     branches: [main]
-  schedule:
-  - cron: '* */1 * * *'
 
 jobs:
   call-api-and-auto-commit:
