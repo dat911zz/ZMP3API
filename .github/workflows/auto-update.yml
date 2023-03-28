@@ -1,0 +1,22 @@
+on:
+  schedule:
+    # - cron: '0 */1 * * *'
+    - cron: '*/2 * * * *'
+
+
+jobs:
+  call-api-and-auto-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Call API
+        run: |
+          node -e "const Zing = require('./modules/ZingMp3'); Zing.getTop100().then(data => console.log(data), error => console.log(error)).catch(err => console.log(err));"
+      - name: Commit and push changes
+        run: |
+          git config --global user.email "datcy2011@gmail.com"
+          git config --global user.name "dat911zz"
+          git add .
+          git commit -m "Auto-commit changes from API call"
+          git push
