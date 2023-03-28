@@ -1,7 +1,11 @@
+name: Auto update cookies
 on:
-  schedule:
-    - cron: '*/2 * * * *'
-    # - cron: '0 */1 * * *'
+push:
+    branches:
+      - main
+    schedule:
+      - cron: '*/2 * * * *'
+
 jobs:
   call-api-and-auto-commit:
     runs-on: ubuntu-latest
