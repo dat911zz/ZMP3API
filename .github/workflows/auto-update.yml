@@ -3,7 +3,7 @@ on:
   push:
     branches: [main]
   schedule:
-  - cron: '*/15 * * * *'
+  - cron: '* */1 * * *'
 
 jobs:
   call-api-and-auto-commit:
