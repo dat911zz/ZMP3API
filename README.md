@@ -1,4 +1,7 @@
+
 # ZingMp3 API
+[![Auto update cookies](https://github.com/dat911zz/ZMP3API/actions/workflows/auto-update.yml/badge.svg)](https://github.com/dat911zz/ZMP3API/actions/workflows/auto-update.yml)
+
 ZingMp3API is a NodeJS library.
 
 ## Reverse API
