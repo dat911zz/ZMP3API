@@ -16,8 +16,10 @@ jobs:
           node -e "const Zing = require('./modules/ZingMp3'); Zing.getTop100().then(data => console.log(data), error => console.log(error)).catch(err => console.log(err));"
       - name: Commit and push changes
         run: |
-          git config --global user.email "datcy2011@gmail.com"
-          git config --global user.name "dat911zz"
-          git add .
-          git commit -m "Auto-commit changes from API call"
-          git push
+          if [ -n "$(git status --porcelain)" ]; then
+            git config --global user.email "datcy2011@gmail.com"
+            git config --global user.name "dat911zz"
+            git add .
+            git commit -m "Auto-commit changes from API call"
+            git push
+          fi
