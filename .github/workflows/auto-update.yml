@@ -3,7 +3,7 @@ on:
   push:
     branches: [main]
   schedule:
-    - cron: '0 * * * *'
+    - cron: "0 * * * *"
 
 jobs:
   call-api-and-auto-commit:
@@ -24,4 +24,3 @@ jobs:
       #       git push
       #       curl https://api.render.com/deploy/srv-cg6s8j02qv28u2qhqhp0?key=4CPlb18Zok4
       #     fi
-          
