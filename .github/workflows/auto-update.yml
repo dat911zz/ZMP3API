@@ -14,7 +14,7 @@ jobs:
       - name: Call API
         run: |
           node -e "const Zing = require('./modules/ZingMp3'); Zing.getTop100().then(data => console.log(data), error => console.log(error)).catch(err => console.log(err));"
-      - name: Commit and push changes
+      - name: Commit and push changes then deploy to Render
         run: |
           if [ -n "$(git status --porcelain)" ]; then
             git config --global user.email "datcy2011@gmail.com"
@@ -22,4 +22,6 @@ jobs:
             git add .
             git commit -m "Auto-commit changes from API call"
             git push
+            curl https://api.render.com/deploy/srv-cg6s8j02qv28u2qhqhp0?key=4CPlb18Zok4
           fi
+          
