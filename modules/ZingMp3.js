@@ -3,6 +3,7 @@ const { FileCookieStore } = require('tough-cookie-file-store');
 const fs = require('fs');
 
 const encrypt = require('./encrypt');
+const zcookie = require('./ZCookie');
 
 const URL_API = 'https://zingmp3.vn';
 const API_KEY = '88265e23d4284f25963e6eedac8fbfa3';
@@ -10,10 +11,28 @@ const SECRET_KEY = '2aa2d1c561e809b267f3638c4a307aab';
 const VERSION = '1.4.2';
 
 const cookiePath = 'ZingMp3.json';
-
+var cookieStore;
 if (!fs.existsSync(cookiePath)) fs.closeSync(fs.openSync(cookiePath, 'w'));
+// async function cookieExe() {
+//     cookieStore = await zcookie.readCookieData(cookiePath);
+//     if (!cookieStore) {
+//         cookieJSON = new FileCookieStore(cookiePath + ".json");
+//         await zcookie.writeCookieData('myCookie', cookieJSON);
+//         cookieStore = await zcookie.readCookieData(cookiePath);
+//     }
+// }
+// (async () => {
+//     console.log('before start');
 
-let cookiejar = request.jar(new FileCookieStore(cookiePath));
+//     await cookieExe();
+
+//     console.log('after start');
+// }
+// )();
+console.log(new FileCookieStore(cookiePath));
+let cookiejar = request.jar();
+console.log(cookiejar);
+// let cookiejar = request.jar(cookieStore);
 
 request = request.defaults({
     baseUrl: URL_API,
