@@ -7,15 +7,14 @@ const encrypt = require('./encrypt');
 const URL_API = 'https://zingmp3.vn';
 const API_KEY = '88265e23d4284f25963e6eedac8fbfa3';
 const SECRET_KEY = '2aa2d1c561e809b267f3638c4a307aab';
-const VERSION = '1.4.2';
+const VERSION = '1.6.34';
 
-// const cookiePath = 'ZingMp3.json';
+const cookiePath = 'ZingMp3.json';
 
-// if (!fs.existsSync(cookiePath)) fs.closeSync(fs.openSync(cookiePath, 'w'));
+if (!fs.existsSync(cookiePath)) fs.closeSync(fs.openSync(cookiePath, 'w'));
 
-// let cookiejar = request.jar(new FileCookieStore(cookiePath));
-let cookiejar = request.jar();
-
+let cookiejar = request.jar(new FileCookieStore(cookiePath));
+cookiejar._jar.enableLooseMode = false;
 
 request = request.defaults({
     baseUrl: URL_API,
@@ -30,6 +29,7 @@ class ZingMp3 {
     constructor() {
         this.time = null;
     }
+    //#region Method to get api
 
     getFullInfo(id) {
         return new Promise(async (resolve, reject) => {
@@ -134,6 +134,7 @@ class ZingMp3 {
             haveParam: 1,
         });
     }
+    //#endregion
 
     async getCookie(resPath) {
         if (!cookiejar._jar.store.idx['zingmp3.vn']) await request.get('/top100');
@@ -144,6 +145,7 @@ class ZingMp3 {
         return new Promise(async (resolve, reject) => {
             try {
                 await this.getCookie();
+
                 let param = new URLSearchParams(qs).toString();
 
                 let sig = this.hashParam(path, param, haveParam);
