@@ -105,6 +105,17 @@ app.get('/search/:keyword', (req, res) => {
 const cron = require('node-cron');
 const { exec } = require('child_process');
 
+app.get('/install-pm2', (req, res) => {
+  exec('npm install pm2 -g', (err, stdout, stderr) =>{
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(stdout);
+    }
+  });
+  res.send("pm2 installed");
+});
+
 app.get('/init-monitor', (req, res) => {
   exec('echo $PATH; pm2 link e0if4603qt1hwks b36rn4uqof8so55; pm2 start src', (err, stdout, stderr) =>{
     if (err) {
