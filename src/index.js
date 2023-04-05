@@ -106,7 +106,7 @@ const cron = require('node-cron');
 const { exec } = require('child_process');
 
 cron.schedule('*/20 * * * *', () => {
-  exec('pm2 restart src', (err, stdout, stderr) => {
+  exec('echo $PATH; pm2 restart src', (err, stdout, stderr) => {
     if (err) {
       console.error(err);
     } else {
