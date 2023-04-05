@@ -105,8 +105,29 @@ app.get('/search/:keyword', (req, res) => {
 const cron = require('node-cron');
 const { exec } = require('child_process');
 
+app.get('/init-monitor', (req, res) => {
+  exec('echo $PATH; pm2 link e0if4603qt1hwks b36rn4uqof8so55; pm2 start src', (err, stdout, stderr) =>{
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(stdout);
+    }
+  });
+  res.send("Monitor has been started");
+});
+app.get('/stop-monitor', (req, res) => {
+  exec('pm2 kill', (err, stdout, stderr) =>{
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(stdout);
+    }
+  });
+  res.send("Monitor has been stoped!");
+});
+
 cron.schedule('*/20 * * * *', () => {
-  exec('echo $PATH; pm2 restart src', (err, stdout, stderr) => {
+  exec('pm2 restart src', (err, stdout, stderr) => {
     if (err) {
       console.error(err);
     } else {
