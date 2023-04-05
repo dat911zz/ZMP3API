@@ -51,7 +51,7 @@ app.use(
 app.get('/err1', (req, res) => {
   res.status(500).send("Lỗi đang test hệ thống!");
 });
-// defining an endpoint to return all ads
+//#region GET methods
 app.get('/', (req, res) => {
   res.send(homeTitle);
 });
@@ -100,6 +100,23 @@ app.get('/search/:keyword', (req, res) => {
     .then(data => res.json(data), error => res.json(error))
     .catch(err => console.log("error:", err));
 });
+//#endregion
+//#region Schedule job
+const cron = require('node-cron');
+const { exec } = require('child_process');
+
+cron.schedule('*/20 * * * *', () => {
+  exec('pm2 restart src', (err, stdout, stderr) => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(stdout);
+    }
+  });
+});
+
+//#endregion
+
 // starting the server
 app.listen(3000, () => {
   console.log('listening on port 3000');
