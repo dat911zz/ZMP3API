@@ -117,9 +117,9 @@ const { exec } = require('child_process');
 // });
 
 cron.schedule('*/30 * * * *', () => {
-  exec('node -e "const Zing = require(\'./modules/ZingMp3\'); '+
-  'Zing.getTop100().then(data => console.log(data), error => console.log(error)).catch(err => console.log(err));'+
-  'Zing.getStreaming(\'ZWABWOFZ\').then(data => console.log(data), error => console.log(error)).catch(err => console.log(err));"', (err, stdout, stderr) => {
+  exec('curl -X \'GET\' \'https://zingmp3api-dvn.onrender.com/top100\' \\-H \'accept: application/json\''+
+  'curl -X \'GET\' \'https://zingmp3api-dvn.onrender.com/getStreaming/ZWABWOFZ\' \\-H \'accept: application/json\''
+  , (err, stdout, stderr) => {
     if (err) {
       console.error(err);
     } else {
