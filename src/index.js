@@ -105,19 +105,21 @@ app.get('/search/:keyword', (req, res) => {
 const cron = require('node-cron');
 const { exec } = require('child_process');
 
-app.get('/stop-monitor', (req, res) => {
-  exec('pm2-runtime kill', (err, stdout, stderr) =>{
-    if (err) {
-      console.error(err);
-    } else {
-      console.log(stdout);
-    }
-  });
-  res.send("Monitor has been stoped!");
-});
+// app.get('/stop-monitor', (req, res) => {
+//   exec('pm2-runtime kill', (err, stdout, stderr) =>{
+//     if (err) {
+//       console.error(err);
+//     } else {
+//       console.log(stdout);
+//     }
+//   });
+//   res.send("Monitor has been stoped!");
+// });
 
-cron.schedule('*/20 * * * *', () => {
-  exec('pm2-runtime restart src', (err, stdout, stderr) => {
+cron.schedule('*/30 * * * *', () => {
+  exec('node -e "const Zing = require(\'./modules/ZingMp3\'); '+
+  'Zing.getTop100().then(data => console.log(data), error => console.log(error)).catch(err => console.log(err));'+
+  'Zing.getFullInfo(\'ZWABWOFZ\').then(data => console.log(data), error => console.log(error)).catch(err => console.log(err));"', (err, stdout, stderr) => {
     if (err) {
       console.error(err);
     } else {
