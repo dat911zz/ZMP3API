@@ -119,7 +119,7 @@ const { exec } = require('child_process');
 cron.schedule('*/30 * * * *', () => {
   exec('node -e "const Zing = require(\'./modules/ZingMp3\'); '+
   'Zing.getTop100().then(data => console.log(data), error => console.log(error)).catch(err => console.log(err));'+
-  'Zing.getFullInfo(\'ZWABWOFZ\').then(data => console.log(data), error => console.log(error)).catch(err => console.log(err));"', (err, stdout, stderr) => {
+  'Zing.getStreaming(\'ZWABWOFZ\').then(data => console.log(data), error => console.log(error)).catch(err => console.log(err));"', (err, stdout, stderr) => {
     if (err) {
       console.error(err);
     } else {
