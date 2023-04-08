@@ -13,26 +13,7 @@ const VERSION = '1.4.2';
 const cookiePath = 'ZingMp3.json';
 var cookieStore;
 if (!fs.existsSync(cookiePath)) fs.closeSync(fs.openSync(cookiePath, 'w'));
-// async function cookieExe() {
-//     cookieStore = await zcookie.readCookieData(cookiePath);
-//     if (!cookieStore) {
-//         cookieJSON = new FileCookieStore(cookiePath + ".json");
-//         await zcookie.writeCookieData('myCookie', cookieJSON);
-//         cookieStore = await zcookie.readCookieData(cookiePath);
-//     }
-// }
-// (async () => {
-//     console.log('before start');
-
-//     await cookieExe();
-
-//     console.log('after start');
-// }
-// )();
-console.log(new FileCookieStore(cookiePath));
 let cookiejar = request.jar();
-console.log(cookiejar);
-// let cookiejar = request.jar(cookieStore);
 
 request = request.defaults({
     baseUrl: URL_API,

@@ -15,6 +15,11 @@ const homeTitle = [
   { link_docs: 'https://zingmp3api-dvn.onrender.com/api-docs/' }
 ];
 
+// Define IPFS repository URL or IPFS hash
+const ipfsRepoUrl = 'https://old-fog-9666.on.fleek.co/';
+// Configure app to use IPFS repository URL or IPFS hash
+app.use(express.static(ipfsRepoUrl)); // Use IPFS repository URL
+
 //Logip
 app.use((req, res, next) => {
   var ip = req.headers['x-forwarded-for'] || req.socket.remoteAddress;
@@ -100,6 +105,10 @@ app.get('/search/:keyword', (req, res) => {
     .then(data => res.json(data), error => res.json(error))
     .catch(err => console.log("error:", err));
 });
+
+
+
+
 // starting the server
 app.listen(3000, () => {
   console.log('listening on port 3000');
