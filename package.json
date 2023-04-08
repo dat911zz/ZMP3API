@@ -12,6 +12,9 @@
     "api-music",
     "music"
   ],
+  "scripts": {
+    "start": "pm2 start src --name my-api"
+  },
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.20.2",
@@ -37,5 +40,8 @@
   },
   "bugs": {
     "url": "https://github.com/whoant/ZingMp3API/issues"
+  },
+  "devDependencies": {
+    "pm2": "^5.3.0"
   }
 }
