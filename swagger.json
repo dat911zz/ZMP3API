@@ -72,6 +72,29 @@
         }
       ]
     },
+    "/getLyric/{id}": {
+      "get": {
+        "tags": ["api"],
+        "summary": "Get song lyric and extra infomation",
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "404":{
+            "description": "Not found!"
+          }
+        }
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of song that we want to get lyric",
+          "type": "string"
+        }
+      ]
+    },
     "/getFullInfo/{id}": {
       "get": {
         "tags": ["api"],

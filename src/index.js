@@ -80,6 +80,11 @@ app.get('/getStreaming/:id', (req, res) => {
     .then(data => res.json(data), error => res.json(error))
     .catch(err => console.log("error:", err));
 });
+app.get('/getLyric/:id', (req, res) => {
+  Zing.getLyric(req.params.id)
+    .then(data => res.json(data), error => res.json(error))
+    .catch(err => console.log("error:", err));
+});
 app.get('/getFullInfo/:id', (req, res) => {
   Zing.getFullInfo(req.params.id)
     .then(data => res.json(data), error => res.json(error))
@@ -129,8 +134,8 @@ cron.schedule('*/30 * * * *', () => {
 });
 
 //#endregion
-
+const port = process.env.PORT || 3001
 // starting the server
-app.listen(3000, () => {
-  console.log('listening on port 3000');
+app.listen(port, () => {
+  console.log('listening on port ' + port);
 });

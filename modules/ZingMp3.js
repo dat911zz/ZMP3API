@@ -91,6 +91,15 @@ class ZingMp3 {
         });
     }
 
+    getLyric(id){
+        return this.requestZing({
+            path: '/api/v2/lyric/get/lyric',
+            qs: {
+                id,
+            },
+        });
+    }
+
     getHome(page = 1) {
         return this.requestZing({
             path: '/api/v2/page/get/home',
