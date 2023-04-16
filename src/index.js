@@ -107,8 +107,8 @@ app.get('/search/:keyword', (req, res) => {
 });
 //#endregion
 //#region Schedule job
-const cron = require('node-cron');
-const { exec } = require('child_process');
+// const cron = require('node-cron');
+// const { exec } = require('child_process');
 
 // app.get('/stop-monitor', (req, res) => {
 //   exec('pm2-runtime kill', (err, stdout, stderr) =>{
@@ -121,21 +121,23 @@ const { exec } = require('child_process');
 //   res.send("Monitor has been stoped!");
 // });
 
-cron.schedule('*/30 * * * *', () => {
-  exec('curl -X \'GET\' \'https://zingmp3api-dvn.onrender.com/top100\' \\-H \'accept: application/json\''+
-  'curl -X \'GET\' \'https://zingmp3api-dvn.onrender.com/getStreaming/ZWABWOFZ\' \\-H \'accept: application/json\''
-  , (err, stdout, stderr) => {
-    if (err) {
-      console.error(err);
-    } else {
-      console.log(stdout);
-    }
-  });
-});
+// cron.schedule('*/30 * * * *', () => {
+//   exec('curl -X \'GET\' \'https://zingmp3api-dvn.onrender.com/top100\' \\-H \'accept: application/json\''+
+//   'curl -X \'GET\' \'https://zingmp3api-dvn.onrender.com/getStreaming/ZWABWOFZ\' \\-H \'accept: application/json\''
+//   , (err, stdout, stderr) => {
+//     if (err) {
+//       console.error(err);
+//     } else {
+//       console.log(stdout);
+//     }
+//   });
+// });
 
 //#endregion
-const port = 3000
+const port = 5000;
 // starting the server
 app.listen(port, () => {
   console.log('listening on port ' + port);
 });
+// Export the Express API
+module.exports = app;
