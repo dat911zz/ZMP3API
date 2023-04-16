@@ -9,12 +9,7 @@ const API_KEY = '88265e23d4284f25963e6eedac8fbfa3';
 const SECRET_KEY = '2aa2d1c561e809b267f3638c4a307aab';
 const VERSION = '1.6.34';
 
-const cookiePath = 'ZingMp3.json';
-
-if (!fs.existsSync(cookiePath)) fs.closeSync(fs.openSync(cookiePath, 'w'));
-
-let cookiejar = request.jar(new FileCookieStore(cookiePath));
-cookiejar._jar.enableLooseMode = false;
+let cookiejar = request.jar();
 
 request = request.defaults({
     baseUrl: URL_API,
