@@ -12,7 +12,7 @@ const app = express();
 const homeTitle = [
   { title: 'API to crawl songs from ZingMp3' },
   { author: 'dat911zz' },
-  { link_docs: 'https://zingmp3api-dvn.onrender.com/api-docs/' }
+  { link_docs: 'https://cringe-mp3-api.vercel.app/api-docs/' }
 ];
 
 //Logip
@@ -43,10 +43,12 @@ app.use((error, req, res, next) => {
 const swaggerUi = require('swagger-ui-express'),
   swaggerDocument = require('./swagger.json');
 
+const CSS_URL =
+  "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
 app.use(
   '/api-docs',
   swaggerUi.serve,
-  swaggerUi.setup(swaggerDocument)
+  swaggerUi.setup(swaggerDocument, { customCssUrl: CSS_URL })
 );
 app.get('/err1', (req, res) => {
   res.status(500).send("Lỗi đang test hệ thống!");
