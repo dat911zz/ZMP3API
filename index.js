@@ -1,4 +1,4 @@
-const Zing = require('../modules/ZingMp3');
+const Zing = require('./modules/ZingMp3');
 
 // importing the dependencies
 const express = require('express');
@@ -41,7 +41,7 @@ app.use((error, req, res, next) => {
 })
 
 const swaggerUi = require('swagger-ui-express'),
-  swaggerDocument = require('../swagger.json');
+  swaggerDocument = require('./swagger.json');
 
 app.use(
   '/api-docs',
