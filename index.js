@@ -15,6 +15,8 @@ const papertrail = new winston.transports.Syslog({
   port: 42763,
   protocol: 'tls4',
   localhost: os.hostname(),
+  colorize: true,
+  app_name: 'Cringe-API',
   eol: '\n',
 });
 
@@ -24,7 +26,11 @@ const logger = winston.createLogger({
   transports: [papertrail],
 });
 
-logger.info('hello papertrail');
+console.log = logger.info.bind(logger);
+console.error = logger.error.bind(logger);
+
+
+
 
 // defining the Express app
 const app = express();
@@ -34,6 +40,15 @@ const homeTitle = [
   { author: 'dat911zz' },
   { link_docs: 'https://cringe-mp3-api.vercel.app/api-docs/' }
 ];
+
+//log into logging system
+app.use(morgan('combined', {
+  stream: {
+    write: function (msg) {
+      logger.info("[Vercel server]:" + msg);
+    }
+  }
+}));
 
 //Logip
 app.use((req, res, next) => {
@@ -156,7 +171,7 @@ app.get('/search/:keyword', (req, res) => {
 // });
 
 //#endregion
-const port = 5000;
+const port = 3000;
 // starting the server
 app.listen(port, () => {
   console.log('listening on port ' + port);
