@@ -5,6 +5,26 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const morgan = require('morgan');
+const winston = require('winston');
+const os = require('os');
+
+require('winston-syslog');
+
+const papertrail = new winston.transports.Syslog({
+  host: 'logs3.papertrailapp.com',
+  port: 42763,
+  protocol: 'tls4',
+  localhost: os.hostname(),
+  eol: '\n',
+});
+
+const logger = winston.createLogger({
+  format: winston.format.simple(),
+  levels: winston.config.syslog.levels,
+  transports: [papertrail],
+});
+
+logger.info('hello papertrail');
 
 // defining the Express app
 const app = express();

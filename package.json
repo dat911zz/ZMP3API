@@ -27,7 +27,9 @@
     "request-promise": "^4.2.6",
     "swagger-ui-express": "^4.6.2",
     "tough-cookie-file-store": "^2.0.2",
-    "video-to-audio": "^1.0.1"
+    "video-to-audio": "^1.0.1",
+    "winston": "^3.8.2",
+    "winston-syslog": "^2.7.0"
   },
   "homepage": "https://github.com/whoant/ZingMp3API#readme",
   "repository": {
