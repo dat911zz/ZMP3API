@@ -158,17 +158,17 @@ app.get('/search/:keyword', (req, res) => {
 //   res.send("Monitor has been stoped!");
 // });
 
-cron.schedule('*/30 * * * *', () => {
-  exec('curl -X \'GET\' \'https://zingmp3api-dvn.onrender.com/top100\' \\-H \'accept: application/json\''+
-  'curl -X \'GET\' \'https://zingmp3api-dvn.onrender.com/getStreaming/ZWABWOFZ\' \\-H \'accept: application/json\''
-  , (err, stdout, stderr) => {
-    if (err) {
-      console.error(err);
-    } else {
-      console.log(stdout);
-    }
-  });
-});
+// cron.schedule('*/30 * * * *', () => {
+//   exec('curl -X \'GET\' \'https://zingmp3api-dvn.onrender.com/top100\' \\-H \'accept: application/json\''+
+//   'curl -X \'GET\' \'https://zingmp3api-dvn.onrender.com/getStreaming/ZWABWOFZ\' \\-H \'accept: application/json\''
+//   , (err, stdout, stderr) => {
+//     if (err) {
+//       console.error(err);
+//     } else {
+//       console.log(stdout);
+//     }
+//   });
+// });
 
 //#endregion
 const port = 3000;
