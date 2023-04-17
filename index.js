@@ -8,7 +8,10 @@ const morgan = require('morgan');
 const winston = require('winston');
 const os = require('os');
 
+require('@vercel/analytics');
 require('winston-syslog');
+
+inject();
 
 const papertrail = new winston.transports.Syslog({
   host: 'logs3.papertrailapp.com',
@@ -77,6 +80,7 @@ app.use((error, req, res, next) => {
 
 const swaggerUi = require('swagger-ui-express'),
   swaggerDocument = require('./swagger.json');
+const { inject } = require('@vercel/analytics');
 
 const CSS_URL =
   "https://cdnjs.cloudflare.com/ajax/libs/swagger-ui/4.1.0/swagger-ui.min.css";
