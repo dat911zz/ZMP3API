@@ -12,7 +12,7 @@ class ZMP3Controller {
     }
     getTop(req, res) {
         ZingMp3.getTop100()
-            .then(data => res.json(data), error => res.json(error))
+            .then(data => res.json(data.data), error => res.json(error))
             .catch(err => console.log("error:", err));
     }
     getSongInfo(req, res) {
