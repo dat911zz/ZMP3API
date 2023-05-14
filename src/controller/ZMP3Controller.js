@@ -1,54 +1,54 @@
-const { Zing } = require("zingmp3-api-full")
+const { ZingMp3 } = require("zingmp3-api-full/dist");
 class ZMP3Controller {
     testGetPlaylist(req, res) {
-        Zing.getDetailPlaylist('ZU9ZO7DU')
+        ZingMp3.getDetailPlaylist('ZU9ZO7DU')
             .then(data => res.json(data), error => res.json(error))
             .catch(err => console.log("error:", err));
     }
     getChartHome(req, res) {
-        Zing.getChartHome()
+        ZingMp3.getChartHome()
             .then(data => res.json(data), error => res.json(error))
             .catch(err => console.log("error:", err));
     }
     getTop(req, res) {
-        Zing.getTop100()
+        ZingMp3.getTop100()
             .then(data => res.json(data), error => res.json(error))
             .catch(err => console.log("error:", err));
     }
     getSongInfo(req, res) {
-        Zing.getInfoMusic(req.params.id)
+        ZingMp3.getInfoMusic(req.params.id)
             .then(data => res.json(data), error => res.json(error))
             .catch(err => console.log("error:", err));
     }
     getStreamings(req, res) {
-        Zing.getStreaming(req.params.id)
+        ZingMp3.getStreaming(req.params.id)
             .then(data => res.json(data), error => res.json(error))
             .catch(err => console.log("error:", err));
     }
     getLyricInfo(req, res) {
-        Zing.getLyric(req.params.id)
+        ZingMp3.getLyric(req.params.id)
             .then(data => res.json(data), error => res.json(error))
             .catch(err => console.log("error:", err));
     }
     getFullInfo(req, res) {
-        Zing.getFullInfo(req.params.id)
+        ZingMp3.getFullInfo(req.params.id)
             .then(data => res.json(data), error => res.json(error))
             .catch(err => console.log("error:", err));
     }
     getPlaylist(req, res) {
-        Zing.getDetailPlaylist(req.params.id)
+        ZingMp3.getDetailPlaylist(req.params.id)
             .then(data => res.json(data), error => res.json(error))
             .catch(err => console.log("error:", err));
     }
     getArtist(req, res) {
-        Zing.getDetailArtist(req.params.alias)
+        ZingMp3.getDetailArtist(req.params.alias)
             .then(data => res.json(data), error => res.json(error))
             .catch(err => console.log("error:", err));
     }
     search(req, res) {
-        Zing.search(req.params.keyword)
+        ZingMp3.search(req.params.keyword)
             .then(data => res.json(data), error => res.json(error))
             .catch(err => console.log("error:", err));
     }
 }
-module.exports = new ZMP3Controller();
+module.exports = new ZMP3Controller;

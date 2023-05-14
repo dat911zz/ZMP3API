@@ -51,7 +51,6 @@ app.use((req, res, next) => {
   next();
 });
 app.use(bodyParser.json());
-app.use(cors());
 app.use(morgan('combined'));
 
 // error handler middleware
@@ -77,11 +76,11 @@ app.get('/', (req, res) => {
   res.send(homeTitle);
 });
 // ZingMp3Router
-const ZingMp3Router = require("./src/router/zmp3Router.js");
+const ZingMp3Router = require("./src/router/ZMP3Router");
 app.use("/api", cors({ origin: '*' }), ZingMp3Router)
 // Page Error
 app.get("*", (req, res) => {
-    res.send("Not found!")
+    res.send("Resouce not found!")
 });
 //#endregion
 const port = 3000;

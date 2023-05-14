@@ -10,7 +10,7 @@
     }
   },
   "host": "cringe-mp3-api.vercel.app",
-  "basePath": "/",
+  "basePath": "/api",
   "headers": {
     "Access-Control-Allow-Origin": "*"
   },
@@ -115,7 +115,7 @@
         }
       ]
     },
-    "/getDetailPlaylist/{id}": {
+    "/getPlaylist/{id}": {
       "get": {
         "tags": ["api"],
         "summary": "Get playlist detail",
@@ -135,7 +135,7 @@
         }
       ]
     },
-    "/getDetailArtist/{alias}": {
+    "/getArtist/{alias}": {
       "get": {
         "tags": ["api"],
         "summary": "Get artist detail",
