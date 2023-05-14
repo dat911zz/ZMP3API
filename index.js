@@ -76,10 +76,9 @@ app.get('/err1', (req, res) => {
 app.get('/', (req, res) => {
   res.send(homeTitle);
 });
-// // ZingMp3Router
-// const ZingMp3Router = require("./src/router/zmp3Router.js");
-// app.use("/api", cors({ origin: '*' }), ZingMp3Router)
-
+// ZingMp3Router
+const ZingMp3Router = require("./src/router/zmp3Router.js");
+app.use("/api", cors({ origin: '*' }), ZingMp3Router)
 // Page Error
 app.get("*", (req, res) => {
     res.send("Not found!")
