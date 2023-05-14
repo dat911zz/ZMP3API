@@ -1,0 +1,29 @@
+{
+  "name": "zingmp3-api-full",
+  "version": "1.0.14",
+  "description": "zingmp3-api-full",
+  "main": "dist/index.js",
+  "types": "dist",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/phamhiep2506/zingmp3-api-full.git"
+  },
+  "keywords": [
+    "zingmp3",
+    "zingmp3-api-full",
+    "zingmp3 api",
+    "api"
+  ],
+  "author": "phamhiep2506 <phamhiep25062k@gmail.com>",
+  "license": "ISC",
+  "scripts": {
+    "dev": "tsc --watch"
+  },
+  "devDependencies": {
+    "@types/node": "^16.11.11",
+    "typescript": "^4.5.2"
+  },
+  "dependencies": {
+    "axios": "^0.24.0"
+  }
+}
