@@ -31,18 +31,9 @@ class ZMP3Controller {
             .catch(err => console.log("error:", err));
     }
     getFullInfo(req, res) {
-        return new Promise(async (resolve, reject) => {
-            try {
-                let data = await Promise.all([
-                    this.getInfoMusic(id),
-                    this.getStreaming(id),
-                ]);
-                resolve({ ...data[0], streaming: data[1] });
-            } catch (err) {
-                reject(err);
-            }
-        }).then(data => res.json(data), error => res.json(error))
-        .catch(err => console.log("error:", err));
+        ZingMp3.getFullInfo(req.params.id)
+            .then(data => res.json(data), error => res.json(error))
+            .catch(err => console.log("error:", err));
     }
     getPlaylist(req, res) {
         ZingMp3.getDetailPlaylist(req.params.id)
