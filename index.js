@@ -25,7 +25,6 @@ const logger = winston.createLogger({
   levels: winston.config.syslog.levels,
   transports: [papertrail],
 });
-
 console.log = logger.info.bind(logger);
 console.error = logger.error.bind(logger);
 
