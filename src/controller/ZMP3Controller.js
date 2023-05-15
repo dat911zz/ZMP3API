@@ -41,7 +41,7 @@ class ZMP3Controller {
             .catch(err => console.log("error:", err));
     }
     getArtist(req, res) {
-        ZingMp3.getDetailArtist(req.params.alias)
+        ZingMp3.getArtist(req.params.alias)
             .then(data => res.json(data.data), error => res.json(error))
             .catch(err => console.log("error:", err));
     }
