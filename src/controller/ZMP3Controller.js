@@ -21,7 +21,7 @@ class ZMP3Controller {
             .catch(err => console.log("error:", err));
     }
     getStreamings(req, res) {
-        ZingMp3.getStreaming(req.params.id)
+        ZingMp3.getSong(req.params.id)
             .then(data => res.json(data), error => res.json(error))
             .catch(err => console.log("error:", err));
     }
