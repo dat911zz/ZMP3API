@@ -98,12 +98,7 @@
     "/getFullInfo/{id}": {
       "get": {
         "tags": ["api"],
-        "summary": "Get full info",
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
+        "summary": "Get full info (Temporary suspended)"
       },
       "parameters": [
         {
@@ -185,7 +180,28 @@
             }
           }
         }
+      },
+      "/getVideo/{id}": {
+        "get": {
+          "tags": ["api"],
+          "summary": "Get video",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "description": "ID of video that we want to get",
+            "type": "string"
+          }
+        ]
       }
+
   },
   "schemes": ["https"],
   "consumes": ["application/json"],

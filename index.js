@@ -79,7 +79,7 @@ const ZingMp3Router = require("./src/router/ZMP3Router");
 app.use("/api", cors({ origin: '*' }), ZingMp3Router)
 // Page Error
 app.get("*", (req, res) => {
-    res.send("err: Resouce not found!")
+    res.send("error: Resouce not found!")
 });
 //#endregion
 const port = 3000;

@@ -22,7 +22,7 @@ class ZMP3Controller {
     }
     getStreamings(req, res) {
         ZingMp3.getSong(req.params.id)
-            .then(data => res.json(data.data), error => res.json(error))
+            .then(data => res.json(data), error => res.json(error))
             .catch(err => console.log("error:", err));
     }
     getLyricInfo(req, res) {
@@ -30,13 +30,18 @@ class ZMP3Controller {
             .then(data => res.json(data.data), error => res.json(error))
             .catch(err => console.log("error:", err));
     }
-    getFullInfo(req, res) {
-        ZingMp3.getFullInfo(req.params.id)
-            .then(data => res.json(data), error => res.json(error))
-            .catch(err => console.log("error:", err));
-    }
+    // getFullInfo(req, res) {
+    //     ZingMp3.getFullInfo(req.params.id)
+    //         .then(data => res.json(data), error => res.json(error))
+    //         .catch(err => console.log("error:", err));
+    // }
     getPlaylist(req, res) {
         ZingMp3.getDetailPlaylist(req.params.id)
+            .then(data => res.json(data.data), error => res.json(error))
+            .catch(err => console.log("error:", err));
+    }
+    getCategoryMV(req, res) {
+        ZingMp3.getCategoryMV(req.params.id)
             .then(data => res.json(data.data), error => res.json(error))
             .catch(err => console.log("error:", err));
     }
@@ -50,5 +55,11 @@ class ZMP3Controller {
             .then(data => res.json(data.data), error => res.json(error))
             .catch(err => console.log("error:", err));
     }
+    getVideo(req, res){
+        ZingMp3.search(req.params.id)
+            .then(data => res.json(data), error => res.json(error))
+            .catch(err => console.log("error:", err));
+    }
+
 }
 module.exports = new ZMP3Controller;
