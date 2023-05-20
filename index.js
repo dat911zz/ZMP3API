@@ -33,6 +33,7 @@ const app = express();
 const homeTitle = [
   { title: 'API to crawl songs from ZingMp3' },
   { author: 'dat911zz' },
+  { version: '2.0.1'},
   { link_docs: 'https://cringe-mp3-api.vercel.app/api-docs/' }
 ];
 //log into logging system

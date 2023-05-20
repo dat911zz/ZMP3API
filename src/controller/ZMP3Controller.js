@@ -42,7 +42,7 @@ class ZMP3Controller {
     }
     getCategoryMV(req, res) {
         ZingMp3.getCategoryMV(req.params.id)
-            .then(data => res.json(data.data), error => res.json(error))
+            .then(data => res.json(data), error => res.json(error))
             .catch(err => console.log("error:", err));
     }
     getArtist(req, res) {
